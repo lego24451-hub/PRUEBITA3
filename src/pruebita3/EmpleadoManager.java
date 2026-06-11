@@ -104,7 +104,6 @@ public class EmpleadoManager{
             System.out.println("Empleado no encontrado");
             return;
         }
-
         RandomAccessFile raf = salesFileFor(code);
         int month = Calendar.getInstance().get(Calendar.MONTH); 
         long pos = month * MONTH_REC_SIZE;
@@ -181,7 +180,7 @@ public class EmpleadoManager{
         System.out.printf("Empleado %s se le pago Lps. %.2f%n", nombre, total);
     }
     public static void printEmployee(int code) throws IOException {
-        // Paso 1: Buscar empleado y mostrar datos
+        
         int pos = findEmployeePosition(code);
         if (pos == -1) {
             System.out.println("Empleado no encontrado");
@@ -299,9 +298,14 @@ public class EmpleadoManager{
                 case 2:
                     try {
                         System.out.print("Ingrese codigo del empleado: ");
+                        
+                        
                         int code1 = scanner.nextInt();
+                        
                         System.out.print("Ingrese monto de venta: ");
+                        
                         double monto = scanner.nextDouble();
+                        
                         addSaleToEmployee(code1, monto);
                     } catch (IOException e) {
                         System.out.println("Error: " + e.getMessage());
